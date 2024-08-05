@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    
+  }
+  
+  h1 {
+    margin: 10px;
+  }
+
+  body{
+    background-image: url("https://st3.depositphotos.com/29296402/37009/v/600/depositphotos_370098862-stock-illustration-the-news-sketch-vector-seamless.jpg");
+    
+  }
+  
+  .Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: brown;
+    height: 10vh;
+    border-bottom: 7px solid rgb(41, 57, 78);
+  }
+  
+  .Header img {
+    width: 130px;
+    margin: 5px;
+    height: 90%;
+    border-radius: 50%;
+  }
+  
+  .Header h1 {
+    margin-left: 5px;
+    font-size: 55px;
+  }
+  
