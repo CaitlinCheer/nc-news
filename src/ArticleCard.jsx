@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 import "./cssFiles/ArticleCard.css"
 
 export default function ArticleCard({ article }) {
@@ -23,3 +24,4 @@ export default function ArticleCard({ article }) {
     
   );
 }
+

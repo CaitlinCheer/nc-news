@@ -20,10 +20,14 @@ export function getArticleById(article_id) {
     return data.article;
   });
 }
+export function patchLikesByArticle(article_id, vote) {
+  return api.patch(`/articles/${article_id}`, { inc_votes: vote }).then(({data}) => {
+    return data.article
+  })
+}
 
 export function getCommentsByArticleId(article_id) {
   return api.get(`/articles/${article_id}/comments`).then(({ data }) => {
-    console.log(data.articleComments)
     return data.articleComments;
   });
 }
