@@ -8,10 +8,16 @@ export function getAllArticles() {
   return api
     .get("/articles")
     .then(({ data }) => {
-        
       return data.articles;
     })
     .catch((err) => {
       console.log(err, "No data found");
     });
+}
+
+export function getArticleById(article_id) {
+  return api.get(`/articles/${article_id}`).then(({ data }) => {
+    console.log(data.article);
+    return data.article;
+  });
 }

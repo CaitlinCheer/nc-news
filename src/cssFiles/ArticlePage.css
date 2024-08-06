@@ -1,0 +1,46 @@
+.article {
+    margin: 50px;
+    padding: 30px;
+    background-color: white;
+    border: solid 3px brown;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+h2{
+    margin-bottom: 30px;
+}
+h3{
+    margin-top: 30px;
+}
+
+img {
+    margin: 10px;
+    max-width: 100%; 
+}
+
+body-content {
+    width: 100%;
+}
+
+@media (min-width: 1350px) {
+    .article {
+        flex-direction: row; 
+        align-items: flex-start;
+    }
+
+    img {
+        margin-right: 20px;
+        width: auto; 
+        height: auto; 
+    }
+
+    body-content {
+        width: auto;
+    }
+}

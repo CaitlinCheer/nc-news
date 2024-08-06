@@ -20,12 +20,12 @@
 
 .articles-info {
   display: flex;
-  flex-direction: column;
-  width: 50vw;
+  width: 80vw;
+  justify-content: space-between;
 }
 
-img {
-  width: 30vw;
+.articles-info img {
+  width: 20vw;
   max-width: 400px;
   max-height: 190px;
 }
@@ -43,4 +43,10 @@ li {
 }
 h3 {
   margin: 0 0 20px 0;
+}
+h4 {
+  margin: 20px;
+  padding: 5px;
+  font-size: 50px;
+  background-color: white;
 }
