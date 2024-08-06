@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+
 import TextField from "@mui/material/TextField";
 import { getAllArticles } from "../API";
-import "./css files/HomePage.css";
+import "./cssFiles/HomePage.css";
+import ArticleCard from "./ArticleCard";
 
 export default function HomePage() {
   const [allArticles, setAllArticles] = useState([]);
@@ -10,7 +12,16 @@ export default function HomePage() {
     getAllArticles().then((articles) => {
       setAllArticles(articles);
     });
-  });
+  }, []);
+
+  const listItems = [];
+  for (let i = 0; i < Math.min(5, allArticles.length); i++) {
+    listItems.push(
+      <li key={allArticles[i].article_id} id={allArticles[i].article_id}>
+        <ArticleCard article={allArticles[i]} />
+      </li>
+    );
+  }
 
   return (
     <section className="articles">
@@ -22,21 +33,9 @@ export default function HomePage() {
         />
         <button>Filter</button>
       </div>
+      <h4>Check out our latest articles...</h4>
 
-      <ul className="articles-list">
-        {allArticles.map((articles) => {
-          return (
-            <li>
-              <section className="articles-info">
-                <h3>{articles.title}</h3>
-                <h5>By: {articles.author}</h5>
-                <p>Votes: {articles.votes}</p>
-              </section>
-              <img src={articles.article_img_url} />
-            </li>
-          );
-        })}
-      </ul>
+      <ul className="articles-list">{listItems}</ul>
     </section>
   );
 }
