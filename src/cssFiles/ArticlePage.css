@@ -1,46 +1,96 @@
+/* ARTICLE BODY */
+
+.article-body {
+  background-color: white;
+  border: solid 2px brown;
+  margin: 50px;
+  padding: 30px;
+}
 .article {
-    margin: 50px;
-    padding: 30px;
-    background-color: white;
-    border: solid 3px brown;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h1 {
-    font-size: 50px;
-    margin-bottom: 30px;
+.article-body h1 {
+  font-size: 50px;
+  margin-bottom: 30px;
 }
-h2{
-    margin-bottom: 30px;
+.article-body h2 {
+  margin-bottom: 30px;
 }
-h3{
-    margin-top: 30px;
+.article-body h3 {
+  margin-top: 30px;
+}
+.article-body b {
+  font-size: larger;
 }
 
 img {
-    margin: 10px;
-    max-width: 100%; 
+  margin: 10px;
+  max-width: 100%;
 }
 
 body-content {
-    width: 100%;
+  width: 100%;
 }
 
 @media (min-width: 1350px) {
-    .article {
-        flex-direction: row; 
-        align-items: flex-start;
-    }
+  .article {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 
-    img {
-        margin-right: 20px;
-        width: auto; 
-        height: auto; 
-    }
+  img {
+    margin-right: 20px;
+    width: auto;
+    height: auto;
+  }
 
-    body-content {
-        width: auto;
-    }
+  body-content {
+    width: auto;
+  }
+}
+
+/* COMMENTS */
+.comments-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 100px;
+  border-top: solid 2px rgb(41, 57, 78);
+  width: auto;
+}
+li {
+  list-style: none;
+  width: auto;
+  justify-content: space-between;
+  margin: 10px 0 50px 0;
+  border-bottom: solid 1px rgba(165, 42, 42, 0.514);
+}
+.comments-body h2 {
+  margin: 10px;
+  font-size: 30px;
+}
+li h3 {
+  font-size: 22px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+li b {
+  font-size: small;
+}
+.single-comment-body {
+  padding: 15px;
+  margin: 20px;
+  border: solid 1px rgba(92, 129, 177, 0.6);;
+}
+button{
+  color: rgb(41, 57, 78);
+  padding: 5px;
+  margin: 10px;
+  transition: ease 0.5s;
+}
+button:hover{
+  background-color: rgba(92, 129, 177, 0.6);
 }

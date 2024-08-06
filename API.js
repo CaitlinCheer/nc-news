@@ -17,7 +17,13 @@ export function getAllArticles() {
 
 export function getArticleById(article_id) {
   return api.get(`/articles/${article_id}`).then(({ data }) => {
-    console.log(data.article);
     return data.article;
+  });
+}
+
+export function getCommentsByArticleId(article_id) {
+  return api.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    console.log(data.articleComments)
+    return data.articleComments;
   });
 }
