@@ -86,11 +86,14 @@ li b {
   border: solid 1px rgba(92, 129, 177, 0.6);;
 }
 button{
-  color: rgb(41, 57, 78);
+  background-color: rgb(55, 76, 104);
+  color: white;
+  border-radius: 15%;
   padding: 5px;
   margin: 10px;
   transition: ease 0.5s;
 }
 button:hover{
   background-color: rgba(92, 129, 177, 0.6);
+  color: black;
 }
