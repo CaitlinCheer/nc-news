@@ -22,7 +22,7 @@ export default function ArticleBody({ individualArticle }) {
   }, [individualArticle]);
 
   const handleLike = () => {
-    let newLikesCount = likesCount
+    let newLikesCount = likesCount;
     if (isLiked === false) {
       newLikesCount += 1;
       patchLikesByArticle(individualArticle.article_id, 1);
@@ -36,7 +36,6 @@ export default function ArticleBody({ individualArticle }) {
     }
     setLikesCountState(newLikesCount);
     setLikesCount(individualArticle.article_id, newLikesCount);
-
   };
 
   function formatDate(isoString) {
@@ -56,10 +55,12 @@ export default function ArticleBody({ individualArticle }) {
             ? formatDate(individualArticle.created_at)
             : ""}
         </h3>
-        <button className="article" onClick={handleLike}>
-          Upvote
-        </button>
-        <p>{likesCount}</p>
+        <div className="upvotes">
+          <b>{likesCount}</b>
+          <button className="article" onClick={handleLike}>
+            Upvote
+          </button>
+        </div>
       </div>
     </section>
   );

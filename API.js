@@ -21,13 +21,24 @@ export function getArticleById(article_id) {
   });
 }
 export function patchLikesByArticle(article_id, vote) {
-  return api.patch(`/articles/${article_id}`, { inc_votes: vote }).then(({data}) => {
-    return data.article
-  })
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: vote })
+    .then(({ data }) => {
+      return data.article;
+    });
 }
 
 export function getCommentsByArticleId(article_id) {
   return api.get(`/articles/${article_id}/comments`).then(({ data }) => {
     return data.articleComments;
   });
+}
+export function addCommentOnArticle(article_id, comment) {
+  console.log(article_id);
+  console.log(comment);
+  return api
+    .post(`/articles/${article_id}/comments`, comment)
+    .then(({ data }) => {
+      return data;
+    });
 }

@@ -1,17 +1,20 @@
 import { useState } from "react";
+import AddComment from "./AddComment.jsx";
 import "./cssFiles/ArticlePage.css";
 
-export default function Comments({ comments, individualArticle }) {
-
-
+export default function Comments({ comments, individualArticle, setComments }) {
+  
   function formatDate(isoString) {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(isoString).toLocaleDateString(undefined, options);
   }
   return (
     <div className="comments-body">
-      <h2>{comments.length} Comments </h2>
-      <button>Filter</button>
+      <div className="comments-top">
+        <h2>{comments.length} Comments </h2>
+        <button>Filter</button>
+      </div>
+      <AddComment id={individualArticle.article_id} setComments={setComments}/>
       <ul>
         {comments.map((comment) => {
           return (
@@ -26,11 +29,7 @@ export default function Comments({ comments, individualArticle }) {
                 <b>{comment.body}</b>
               </div>
               <b>{comment.votes}</b>
-              <button
-                className="comment"
-              >
-                Upvote
-              </button>
+              <button className="comment">Upvote</button>
             </li>
           );
         })}

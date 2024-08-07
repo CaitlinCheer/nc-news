@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import LoadingComponent from "./LoadingComponent.jsx";
 import TextField from "@mui/material/TextField";
 import { getAllArticles } from "../API";
 import "./cssFiles/HomePage.css";
@@ -7,10 +7,13 @@ import ArticleCard from "./ArticleCard";
 
 export default function HomePage() {
   const [allArticles, setAllArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getAllArticles().then((articles) => {
       setAllArticles(articles);
+      setIsLoading(false);
     });
   }, []);
 
@@ -32,10 +35,14 @@ export default function HomePage() {
           variant="outlined"
         />
         <button>Filter</button>
-      </div>
+       </div>
       <h4>Check out our latest articles...</h4>
-
-      <ul className="articles-list">{listItems}</ul>
+     
+      {isLoading ? (
+        <LoadingComponent />
+      ) : (
+        <ul className="articles-list">{listItems}</ul>
+      )}
     </section>
   );
 }
