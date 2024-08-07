@@ -13,7 +13,6 @@ export default function ArticlePage() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-console.log(comments, "<<")
 
   useEffect(() => {
     setIsLoading(true);

@@ -34,11 +34,13 @@ export function getCommentsByArticleId(article_id) {
   });
 }
 export function addCommentOnArticle(article_id, comment) {
-  console.log(article_id);
-  console.log(comment);
   return api
     .post(`/articles/${article_id}/comments`, comment)
     .then(({ data }) => {
       return data;
     });
+}
+export function deleteCommentById(comment_id) {
+  console.log(comment_id)
+  return api.delete(`/comments/${comment_id}`);
 }

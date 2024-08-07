@@ -2,7 +2,7 @@ import "./cssFiles/Header.css";
 import Header from "./Header";
 import HomePage from "./HomePage";
 import ArticlePage from "./ArticlePage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"
 
 function App() {
   return (
