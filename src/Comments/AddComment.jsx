@@ -1,5 +1,5 @@
 import TextField from "@mui/material/TextField";
-import { addCommentOnArticle } from "../API.js";
+import { addCommentOnArticle } from "../../API.js";
 import { useState } from "react";
 
 export default function AddComment({ id, setComments }) {
@@ -39,16 +39,16 @@ export default function AddComment({ id, setComments }) {
   }
 
   return (
-    <>
+    <div className="add-comment-body">
       <h2>Add a Comment</h2>
-
-      <TextField
+      
+      <TextField className="textfield"
         onChange={handleChange}
         id="outlined-basic"
         label="Add Comment..."
         variant="outlined"
       />
       <button onClick={handleClick}>Add</button>
-    </>
+    </div>
   );
 }

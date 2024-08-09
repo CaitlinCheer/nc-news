@@ -1,8 +1,9 @@
 import "./cssFiles/Header.css";
+import { Routes, Route} from "react-router-dom";
 import Header from "./Header";
 import HomePage from "./HomePage";
-import ArticlePage from "./ArticlePage";
-import { Routes, Route } from "react-router-dom"
+import ArticlePage from "./ArticlePages/ArticlePage";
+import ArticleTopicPages from "./ArticlePages/ArticleTopicPages";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/article" element={<ArticlePage />} />
+        <Route path="/article/:article_id" element={<ArticlePage />} />
+        <Route path="/articles/:topic" element={<ArticleTopicPages />} />
       </Routes>
     </section>
   );

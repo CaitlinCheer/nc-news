@@ -1,14 +1,16 @@
+* {
+  box-sizing: border-box;
+}
 .loading-animation {
   margin: 0 40%;
 }
-/* ARTICLE BODY */
-
+.article-page {
+  display: flex;
+}
 .article-body {
   background-color: white;
-  border: solid 2px brown;
-  margin: 50px;
+  margin: 50px 20px 50px 20px;
   padding: 30px;
-  box-shadow: 0px 0px 10px 5px #888888;
 }
 .article {
   display: flex;
@@ -35,17 +37,25 @@
   justify-content: flex-end;
   align-items: center;
 }
+.upvotes button {
+  padding: 10px;
+}
 
 img {
   margin: 10px;
   max-width: 100%;
 }
 
-body-content {
+.body-content {
   width: 100%;
 }
 
-@media (min-width: 1350px) {
+@media (min-width: 1400px) {
+  .article-body {
+    width: 80%;
+    border: solid 2px brown;
+    box-shadow: 0px 0px 10px 5px #888888;
+  }
   .article {
     flex-direction: row;
     align-items: flex-start;
@@ -57,57 +67,21 @@ body-content {
     height: auto;
   }
 
-  body-content {
+  .body-content {
     width: auto;
   }
 }
 
-/* COMMENTS */
-.comments-body {
-  display: flex;
-  flex-direction: column;
-  margin-top: 100px;
-  border-top: solid 2px rgb(41, 57, 78);
-  width: auto;
-}
-li {
-  list-style: none;
-  width: auto;
-  justify-content: space-between;
-  margin: 10px 0 50px 0;
-  border-bottom: solid 1px rgba(165, 42, 42, 0.514);
-}
-.comments-body h2 {
-  margin: 10px;
-  font-size: 30px;
-}
-li h3 {
-  font-size: 22px;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-li b {
-  font-size: small;
-}
-.single-comment-body {
-  padding: 15px;
-  margin: 20px;
-  border: solid 1px rgba(92, 129, 177, 0.6);
-}
-button {
-  background-color: rgb(55, 76, 104);
-  color: white;
-  border-radius: 15%;
-  padding: 5px;
-  margin: 10px;
-  transition: ease 0.5s;
-}
-button:hover {
-  background-color: rgba(92, 129, 177, 0.6);
-  color: black;
-}
-.comments-top {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
+@media (max-width: 1400px) {
+  .article-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .article-body {
+    width: 80vw;
+    border: 2px solid brown;
+    border-bottom: none;
+    box-shadow: 0px -5px 5px -5px #888888, 0px 0px 10px 5px #888888;
+  }
 }
