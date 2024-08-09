@@ -1,10 +1,33 @@
-.articles-info:hover{
-transform: scale(1.05);
-}
-
 .loading-animation{
     align-self: center;
     width: 30vw;
     margin: 50px;
     width: 15vw;
 }
+
+h3 {
+    margin: 5px;
+    padding: 0 0 20px 0;
+  }
+
+.articles-info {
+    display: flex;
+    width: 80vw;
+    height: 300px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .articles-info img {
+    width: 40vw;
+    max-width: 450px;
+    
+  }
+  .articles-info:hover{
+    transform: scale(1.05);
+    }
+@media(min-width: 1000px) {
+     .articles-info h3{
+      font-size: 35px;
+    }
+  }

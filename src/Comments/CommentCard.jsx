@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { UsersContext } from "./Context/Users";
-import { deleteCommentById } from "../API";
+import { UsersContext } from "../Context/Users";
+import { deleteCommentById } from "../../API";
 
 export default function CommentCard({
   comment,
@@ -15,7 +15,6 @@ export default function CommentCard({
   }
 
   function deleteComment(e) {
-    console.log(e.target.id);
     setComments((currComments) => {
      return currComments.filter((currComment) => {
         return currComment.comment_id !== comment.comment_id;

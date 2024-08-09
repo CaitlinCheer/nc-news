@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import LoadingComponent from "./LoadingComponent.jsx";
-import TextField from "@mui/material/TextField";
 import { getAllArticles } from "../API";
 import "./cssFiles/HomePage.css";
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "./ArticlePages/ArticleCard";
+import SideBarA from "./SideBarA.jsx";
+import SearchForTopics from "./SearchForTopics.jsx";
+import SideBarT from "./SideBarT.jsx";
 
 export default function HomePage() {
   const [allArticles, setAllArticles] = useState([]);
@@ -28,16 +30,17 @@ export default function HomePage() {
 
   return (
     <section className="articles">
+      <SideBarA allArticles={allArticles} />
+      <SideBarT setAllArticles={setAllArticles}/>
       <div className="home-page-mini-header">
-        <TextField
-          id="outlined-basic"
-          label="Search for Topics"
-          variant="outlined"
+        <SearchForTopics
+          allArticles={allArticles}
+          setAllArticles={setAllArticles}
         />
-        <button>Filter</button>
-       </div>
+        <h2>Filter</h2>
+      </div>
       <h4>Check out our latest articles...</h4>
-     
+
       {isLoading ? (
         <LoadingComponent />
       ) : (

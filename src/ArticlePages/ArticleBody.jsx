@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import "./cssFiles/ArticlePage.css";
-import { patchLikesByArticle } from "../API";
+import { useState, useEffect, React } from "react";
+import "../cssFiles/ArticlePage.css";
+import { patchLikesByArticle } from "../../API";
 import {
   getLikesCount,
   getIsLiked,
   setLikesCount,
   setIsLiked,
-} from "./localStorageUtils";
+} from "../localStorageUtils";
 
 export default function ArticleBody({ individualArticle }) {
   const [likesCount, setLikesCountState] = useState(0);
@@ -60,6 +60,7 @@ export default function ArticleBody({ individualArticle }) {
           <button className="article" onClick={handleLike}>
             Upvote
           </button>
+          <button >Jump To Related Articles</button>
         </div>
       </div>
     </section>

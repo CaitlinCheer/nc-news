@@ -1,0 +1,23 @@
+.articles-by-topic-page {
+  background-color: white;
+  margin: 50px;
+  padding: 40px;
+  border: 3px solid brown;
+  
+
+  h2 {
+    font-size: 70px;
+    margin: 20px 0 50px 20px;
+  }
+  li {
+    display: flex;
+    justify-content: center;
+  }
+  li:hover {
+    transform: scale(1.05);
+  }
+  li img {
+    margin-bottom: 60px;    
+    border: 2px solid rgb(41, 57, 78);
+  }
+}

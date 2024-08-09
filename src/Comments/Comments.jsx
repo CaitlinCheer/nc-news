@@ -1,5 +1,5 @@
 import AddComment from "./AddComment.jsx";
-import "./cssFiles/ArticlePage.css";
+import "../cssFiles/Comments.css";
 import CommentCard from "./CommentCard.jsx";
 
 export default function Comments({ comments, individualArticle, setComments }) {

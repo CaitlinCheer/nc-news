@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-import "./cssFiles/ArticleCard.css"
+import "../cssFiles/ArticleCard.css"
 
 export default function ArticleCard({ article }) {
 
     const navigate = useNavigate();
 
   function handleClick() {
-    navigate("/article", { state: { id: article.article_id} });
+    navigate(`/article/${article.article_id}`, { state: { id: article.article_id} });
   }
 
   return (
