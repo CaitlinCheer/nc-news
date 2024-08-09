@@ -57,6 +57,12 @@ h4 {
   font-size: 40px;
   background-color: white;
 }
+.articles b{
+  background-color: white;
+  padding: 10px;
+  font-size: 25px;
+  margin: 10px
+}
 @media (min-width: 1000px) {
   h4 {
     font-size: 50px;

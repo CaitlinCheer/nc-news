@@ -17,7 +17,7 @@ export function getAllArticles({ topic, sort_by, order } = {}) {
       return data.articles;
     })
     .catch((err) => {
-      console.log(err, "No data found");
+     console.log(err)
     });
 }
 

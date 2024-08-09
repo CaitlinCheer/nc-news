@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 
-export default function SearchForTopics({ allArticles, setAllArticles }) {
+export default function SearchForTopics({ allArticles, setFilteredArticles }) {
   const [inputValue, setInputValue] = useState("");
 
   function handleChange(e) {
@@ -9,7 +9,7 @@ export default function SearchForTopics({ allArticles, setAllArticles }) {
   }
   function handleClick(e) {
     e.preventDefault();
-    setAllArticles(
+    setFilteredArticles(
       allArticles.filter((article) => article.topic === inputValue)
     )
    

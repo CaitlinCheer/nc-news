@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import LoadingComponent from "./LoadingComponent.jsx";
-import { getAllArticles } from "../API";
+import { getAllArticles, getAllTopics } from "../API";
 import "./cssFiles/HomePage.css";
 import ArticleCard from "./ArticlePages/ArticleCard";
 import SideBarA from "./SideBarA.jsx";
@@ -35,7 +35,6 @@ export default function HomePage() {
     setFilteredArticles(allArticles);
   }
 
-
   return (
     <section className="articles">
       <SideBarA allArticles={allArticles} />
@@ -43,7 +42,7 @@ export default function HomePage() {
       <div className="home-page-mini-header">
         <SearchForTopics
           allArticles={allArticles}
-          setAllArticles={setAllArticles}
+          setFilteredArticles={setFilteredArticles}
         />
         <Filter onFilterChange={handleChange} />
       </div>
@@ -60,9 +59,11 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-
+          {filteredArticles.length == 0 && (
+            <b>No Articles Found, Have you tried the topics tab?</b>
+          )}
           {allArticles.length > 5 && (
-            <button onClick={loadMore}>Load More</button>
+            <button onClick={loadMore}>Load Articles</button>
           )}
         </>
       )}
