@@ -4,8 +4,13 @@ const api = axios.create({
   baseURL: "https://be-nc-news-74y2.onrender.com/api",
 });
 
-export function getAllArticles({ topic } = {}) {
-  const params = topic ? { topic } : {};
+export function getAllArticles({ topic, sort_by, order } = {}) {
+  const params = {};
+
+  if (topic) params.topic = topic;
+  if (sort_by) params.sort_by = sort_by;
+  if (order) params.order = order;
+
   return api
     .get("/articles", { params })
     .then(({ data }) => {
@@ -45,8 +50,8 @@ export function deleteCommentById(comment_id) {
   return api.delete(`/comments/${comment_id}`);
 }
 
-export function getAllTopics () {
-  return api.get(`/topics`).then(({data}) => {
-    return data.rows
-  })
+export function getAllTopics() {
+  return api.get(`/topics`).then(({ data }) => {
+    return data.rows;
+  });
 }

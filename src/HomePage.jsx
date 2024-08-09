@@ -6,45 +6,65 @@ import ArticleCard from "./ArticlePages/ArticleCard";
 import SideBarA from "./SideBarA.jsx";
 import SearchForTopics from "./SearchForTopics.jsx";
 import SideBarT from "./SideBarT.jsx";
+import Filter from "./Filter.jsx";
 
 export default function HomePage() {
+  const [filteredArticles, setFilteredArticles] = useState([]);
   const [allArticles, setAllArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [filterInput, setFilterInput] = useState("created_at");
+  const [sortInput, setSortInput] = useState("desc");
 
   useEffect(() => {
     setIsLoading(true);
-    getAllArticles().then((articles) => {
-      setAllArticles(articles);
-      setIsLoading(false);
-    });
-  }, []);
-
-  const listItems = [];
-  for (let i = 0; i < Math.min(5, allArticles.length); i++) {
-    listItems.push(
-      <li key={allArticles[i].article_id} id={allArticles[i].article_id}>
-        <ArticleCard article={allArticles[i]} />
-      </li>
+    getAllArticles({ sort_by: filterInput, order: sortInput }).then(
+      (articles) => {
+        setAllArticles(articles);
+        setFilteredArticles(articles.slice(0, 5));
+        setIsLoading(false);
+      }
     );
+  }, [filterInput, sortInput]);
+
+  function handleChange({ sort_by, order }) {
+    setFilterInput(sort_by || filterInput);
+    setSortInput(order || sortInput);
   }
+
+  function loadMore() {
+    setFilteredArticles(allArticles);
+  }
+
 
   return (
     <section className="articles">
       <SideBarA allArticles={allArticles} />
-      <SideBarT setAllArticles={setAllArticles}/>
+      <SideBarT setAllArticles={setAllArticles} />
       <div className="home-page-mini-header">
         <SearchForTopics
           allArticles={allArticles}
           setAllArticles={setAllArticles}
         />
-        <h2>Filter</h2>
+        <Filter onFilterChange={handleChange} />
       </div>
       <h4>Check out our latest articles...</h4>
 
       {isLoading ? (
         <LoadingComponent />
       ) : (
-        <ul className="articles-list">{listItems}</ul>
+        <>
+          <ul className="articles-list">
+            {filteredArticles.map((article) => (
+              <li key={article.article_id}>
+                <ArticleCard article={article} />
+              </li>
+            ))}
+          </ul>
+
+          {allArticles.length > 5 && (
+            <button onClick={loadMore}>Load More</button>
+          )}
+        </>
       )}
     </section>
   );
